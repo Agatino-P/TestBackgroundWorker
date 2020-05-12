@@ -1,0 +1,36 @@
+﻿<Window x:Class="TestBackgroundWorker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TestBackgroundWorker"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow" Width="800" Height="450"
+        d:DataContext="{d:DesignData Type=local:MainWindowViewModel,
+                                     IsDesignTimeCreatable=True}"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Button Width="200" Height="44" Margin="110,117,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Command="{Binding StartCmd}"
+                Content="Start" />
+        <ProgressBar Width="385" Height="62" Margin="110,226,0,0"
+                     HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Value="{Binding Percentage}" />
+        <TextBlock Margin="110,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Max" />
+        <TextBox Width="200" Height="40" Margin="110,38,0,0"
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Text="{Binding Max}"
+                 TextWrapping="Wrap" />
+        <TextBlock Margin="356,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Counter" />
+        <TextBox Width="200" Height="40" Margin="356,38,0,0"
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Text="{Binding Counter}" />
+        <Button Width="200" Height="44" Margin="356,117,0,0"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Command="{Binding StopCmd}"
+            Content="Stop" />
+    </Grid>
+</Window>
